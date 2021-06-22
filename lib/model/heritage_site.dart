@@ -1,5 +1,4 @@
 import 'package:indian_heritage/model/constants.dart';
-import 'package:meta/meta.dart';
 
 class HeritageSite {
   final String featureImageUri;
@@ -8,10 +7,10 @@ class HeritageSite {
   final String title;
 
   HeritageSite({
-    @required this.featureImageUri,
-    @required this.details,
-    @required this.carouselImageUris,
-    @required this.title,
+    required this.featureImageUri,
+    required this.details,
+    required this.carouselImageUris,
+    required this.title,
   });
 }
 

@@ -5,14 +5,14 @@ import 'package:indian_heritage/model/heritage_site.dart';
 class HeritageView extends StatefulWidget {
   final HeritageSite site;
 
-  const HeritageView({Key key, this.site}) : super(key: key);
+  const HeritageView({Key? key, required this.site}) : super(key: key);
 
   @override
   _HeritageViewState createState() => _HeritageViewState();
 }
 
 class _HeritageViewState extends State<HeritageView> {
-  PageController pageController;
+  PageController? pageController;
 
   @override
   void initState() {
@@ -68,7 +68,7 @@ class _HeritageViewState extends State<HeritageView> {
                           widget.site.title,
                           style: Theme.of(context)
                               .textTheme
-                              .title
+                              .title!
                               .copyWith(fontSize: 30),
                         ),
                         SizedBox(height: 10)

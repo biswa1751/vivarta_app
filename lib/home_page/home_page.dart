@@ -5,7 +5,7 @@ import 'package:indian_heritage/model/heritage_site.dart';
 class HomePage extends StatefulWidget {
   final List<HeritageSite> sites;
 
-  const HomePage({Key key, this.sites}) : super(key: key);
+  const HomePage({Key? key, required this.sites}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         title: Text(
           'Heritage Sites',
-          style: Theme.of(context).textTheme.display4.copyWith(fontSize: 36),
+          style: Theme.of(context).textTheme.display4!.copyWith(fontSize: 36),
         ),
       ),
       body: SafeArea(
@@ -32,53 +32,53 @@ class _HomePageState extends State<HomePage> {
             children: List.generate(
               widget.sites.length,
               (int i) => GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) {
-                          return HeritageView(
-                            site: widget.sites[i],
-                          );
-                        }),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) {
+                      return HeritageView(
+                        site: widget.sites[i],
                       );
-                    },
-                    child: Stack(
-                      alignment: Alignment.bottomCenter,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: CircleAvatar(
-                            backgroundImage:
-                                AssetImage(widget.sites[i].featureImageUri),
-                            radius: _screenWidth * 0.3,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(100.0),
-                                gradient: LinearGradient(
-                                  colors: [Colors.white70, Colors.transparent],
-                                  stops: [0.15, 0.6],
-                                  begin: Alignment.bottomCenter,
-                                  end: Alignment.topCenter,
-                                ),
-                              ),
+                    }),
+                  );
+                },
+                child: Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CircleAvatar(
+                        backgroundImage:
+                            AssetImage(widget.sites[i].featureImageUri),
+                        radius: _screenWidth * 0.3,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100.0),
+                            gradient: LinearGradient(
+                              colors: [Colors.white70, Colors.transparent],
+                              stops: [0.15, 0.6],
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
                             ),
                           ),
                         ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: <Widget>[
-                            Text(
-                              widget.sites[i].title,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w300, fontSize: 17),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            )
-                          ],
+                      ),
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Text(
+                          widget.sites[i].title,
+                          style: TextStyle(
+                              fontWeight: FontWeight.w300, fontSize: 17),
                         ),
+                        SizedBox(
+                          height: 20,
+                        )
                       ],
                     ),
-                  ),
+                  ],
+                ),
+              ),
             ),
             gridDelegate:
                 SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CarouselImage extends StatelessWidget {
   final String imageUri;
 
-  const CarouselImage({Key key, this.imageUri}) : super(key: key);
+  const CarouselImage({Key? key,required this.imageUri}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
